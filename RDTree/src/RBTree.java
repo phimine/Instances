@@ -340,7 +340,7 @@ public class RBTree<T extends Comparable<T>> {
      * 删除修复，红黑树在删除节点后可能会破坏红黑规则失去平衡，需要调用该函数以修复
      *
      * @param node 替代节点
-     * @param parent 替代节点的父节点
+     * @param parent 删除节点的父节点
      */
     private void removeFixUp(RBNode<T> node, RBNode<T> parent) {
         RBNode<T> other;
@@ -377,7 +377,6 @@ public class RBTree<T extends Comparable<T>> {
                     other.getRight().setBlack();
                     leftRotate(parent);
                     node = this.root;
-                    break;
                 }
             } else {
 
@@ -412,7 +411,6 @@ public class RBTree<T extends Comparable<T>> {
                     other.getLeft().setBlack();
                     rightRotate(parent);
                     node = this.root;
-                    break;
                 }
             }
         }
